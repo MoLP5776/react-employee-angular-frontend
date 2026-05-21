@@ -3,32 +3,36 @@
 
   <div>
     <label>From:</label>
-    <input type="date" [(ngModel)]="from">
+    <input type="date" [(ngModel)]="from"/>
 
     <label>To:</label>
-    <input type="date" [(ngModel)]="to">
+    <input type="date" [(ngModel)]="to"/>
 
-    <button (click)="loadTasks()">
-      Load Tasks
-    </button>
+    <button (click)="loadTasks()">Load Tasks</button>
   </div>
 
-  <table *ngIf="tasks().length > 0">
-    <thead>
+  @if (tasks().length > 0) {
+    <table>
+      <thead>
       <tr>
         <th>Description</th>
         <th>Finished Date</th>
         <th>Hours Worked</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let task of tasks()">
-        <td>{{ task.description }}</td>
-        <td>{{ task.finishedDate }}</td>
-        <td>{{ task.hoursWorked }}</td>
-      </tr>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        @for (task of tasks(); track task) {
+          <tr>
+            <td>{{ task.description }}</td>
+            <td>{{ task.finishedDate }}</td>
+            <td>{{ task.hoursWorked }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
 
-  <p *ngIf="tasks().length === 0">No tasks found for this period.</p>
+  @if (tasks().length === 0) {
+    <p>No tasks found for this period.</p>
+  }
 </div>

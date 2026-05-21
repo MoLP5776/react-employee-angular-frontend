@@ -1,13 +1,13 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, ActivatedRoute } from '@angular/router';
-import { EmployeeService } from '../../../core/services/employee.service';
-import { Employee } from '../../../core/models/employee';
-import { EmployeeTasks } from '../employee-tasks/employee-tasks';
+import {Component, OnInit, signal} from '@angular/core';
+
+import {RouterLink, ActivatedRoute} from '@angular/router';
+import {EmployeeService} from '../../../core/services/employee.service';
+import {Employee} from '../../../core/models/employee';
+import {EmployeeTasks} from '../employee-tasks/employee-tasks';
 
 @Component({
   selector: 'app-employee-detail',
-  imports: [CommonModule, RouterLink, EmployeeTasks],
+  imports: [RouterLink, EmployeeTasks],
   templateUrl: './employee-detail.html',
   styleUrl: './employee-detail.css',
 })
@@ -17,8 +17,9 @@ export class EmployeeDetail implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private employeeService: EmployeeService
-  ) {}
+    private employeeService: EmployeeService,
+  ) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -37,7 +38,7 @@ export class EmployeeDetail implements OnInit {
       },
       (error) => {
         console.error('Error loading employee:', error);
-      }
+      },
     );
   }
 
@@ -48,7 +49,7 @@ export class EmployeeDetail implements OnInit {
       },
       (error) => {
         console.error('Error loading hours worked:', error);
-      }
+      },
     );
   }
 }

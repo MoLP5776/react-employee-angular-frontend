@@ -1,15 +1,12 @@
-import { Component, Input, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { EmployeeService } from '../../../core/services/employee.service';
-import { Task } from '../../../core/models/task';
+import {Component, Input, OnInit, signal} from '@angular/core';
+
+import {FormsModule} from '@angular/forms';
+import {EmployeeService} from '../../../core/services/employee.service';
+import {Task} from '../../../core/models/task';
 
 @Component({
   selector: 'app-employee-tasks',
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
+  imports: [FormsModule],
   templateUrl: './employee-tasks.html',
   styleUrl: './employee-tasks.css',
 })
@@ -19,7 +16,8 @@ export class EmployeeTasks implements OnInit {
   from = '';
   to = '';
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService) {
+  }
 
   ngOnInit() {
     if (this.employeeId) {
@@ -44,7 +42,7 @@ export class EmployeeTasks implements OnInit {
         },
         (error) => {
           console.error('Error loading tasks:', error);
-        }
+        },
       );
     }
   }
