@@ -4,7 +4,6 @@
   <p><strong>ID:</strong> {{ employee()?.id }}</p>
   <p><strong>Gesamtstunden:</strong> {{ hoursWorked() }}</p>
 
-  <h3>Tasks</h3>
   <app-employee-tasks
     [employeeId]="employee()?.id">
   </app-employee-tasks>
