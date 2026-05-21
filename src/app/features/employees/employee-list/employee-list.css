@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  padding: 2rem;
+}
+
+div {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+div > div:nth-of-type(1) {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+div > div:nth-of-type(1) input {
+  flex: 1;
+  min-width: 200px;
+}
+
+div > div:nth-of-type(1) button {
+  white-space: nowrap;
+}
+
+table {
+  width: 100%;
+}
+
+tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+tbody td:last-child {
+  text-align: right;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 13px;
+}
