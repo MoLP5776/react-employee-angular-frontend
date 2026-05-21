@@ -36,8 +36,18 @@ tbody tr {
   transition: background-color 0.15s ease;
 }
 
+/* Center actions column horizontally and vertically */
+thead th:last-child,
 tbody td:last-child {
-  text-align: right;
+  text-align: center;
+}
+
+tbody td:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* preserve cell padding for consistent row height */
+  padding: 0.8rem 1rem;
 }
 
 button {
