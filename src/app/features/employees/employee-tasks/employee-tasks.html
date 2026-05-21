@@ -1,0 +1,34 @@
+<div>
+  <h3>Tasks for Period</h3>
+
+  <div>
+    <label>From:</label>
+    <input type="date" [(ngModel)]="from">
+
+    <label>To:</label>
+    <input type="date" [(ngModel)]="to">
+
+    <button (click)="loadTasks()">
+      Load Tasks
+    </button>
+  </div>
+
+  <table *ngIf="tasks().length > 0">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Finished Date</th>
+        <th>Hours Worked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks()">
+        <td>{{ task.description }}</td>
+        <td>{{ task.finishedDate }}</td>
+        <td>{{ task.hoursWorked }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="tasks().length === 0">No tasks found for this period.</p>
+</div>
