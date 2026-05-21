@@ -1,0 +1,43 @@
+<div>
+  <h2>Create New Employee</h2>
+
+  <form (ngSubmit)="save()">
+    <div>
+      <label for="id">ID:</label>
+      <input
+        id="id"
+        [(ngModel)]="id"
+        name="id"
+        placeholder="Employee ID"
+        required>
+    </div>
+
+    <div>
+      <label for="firstName">First Name:</label>
+      <input
+        id="firstName"
+        [(ngModel)]="firstName"
+        name="firstName"
+        placeholder="First Name"
+        required>
+    </div>
+
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input
+        id="lastName"
+        [(ngModel)]="lastName"
+        name="lastName"
+        placeholder="Last Name"
+        required>
+    </div>
+
+    <button type="submit">
+      Save
+    </button>
+
+  </form>
+
+  <button routerLink="/">Back to List</button>
+</div>
+

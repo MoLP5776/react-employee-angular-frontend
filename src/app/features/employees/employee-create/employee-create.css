@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  padding: 2rem;
+}
+
+div {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+form {
+  margin-bottom: 2rem;
+}
+
+form div {
+  margin-bottom: 1.5rem;
+}
+
+form div label {
+  margin-bottom: 0.5rem;
+}
+
+form div input {
+  width: 100%;
+}
+
+form button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+}
