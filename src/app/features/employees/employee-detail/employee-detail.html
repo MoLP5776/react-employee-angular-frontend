@@ -2,7 +2,7 @@
   <h2>{{ employee()?.firstName }} {{ employee()?.lastName }}</h2>
 
   <p><strong>ID:</strong> {{ employee()?.id }}</p>
-  <p><strong>Gesamtstunden:</strong> {{ hoursWorked() }}</p>
+  <p><strong>Hours:</strong> {{ hoursWorked() }}</p>
 
   <app-employee-tasks
     [employeeId]="employee()?.id">
