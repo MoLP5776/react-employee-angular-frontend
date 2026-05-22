@@ -1,6 +1,12 @@
 <div>
   <h2>Create New Employee</h2>
 
+  @if (message) {
+    <p class="status-message" [class.success]="messageType === 'success'" [class.error]="messageType === 'error'">
+      {{ message }}
+    </p>
+  }
+
   <form (ngSubmit)="save()">
     <div>
       <label for="id">ID:</label>

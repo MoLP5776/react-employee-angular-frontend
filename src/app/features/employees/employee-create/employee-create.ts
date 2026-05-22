@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 import {FormsModule} from '@angular/forms';
-import {RouterLink, Router} from '@angular/router';
+import {RouterLink} from '@angular/router';
 import {EmployeeService} from '../../../core/services/employee.service';
 import {Employee} from '../../../core/models/employee';
 
@@ -15,11 +15,17 @@ export class EmployeeCreate {
   id = '';
   firstName = '';
   lastName = '';
+  message = '';
+  messageType: 'success' | 'error' | null = null;
 
   constructor(
     private employeeService: EmployeeService,
-    private router: Router,
   ) {
+  }
+
+  private setMessage(message: string, type: 'success' | 'error') {
+    this.message = message;
+    this.messageType = type;
   }
 
   save() {
@@ -32,15 +38,15 @@ export class EmployeeCreate {
     if (employee.id && employee.firstName && employee.lastName) {
       this.employeeService.create(employee).subscribe(
         (data) => {
-          console.log('Employee created successfully:', data);
-          this.router.navigate(['/']);
+          this.setMessage(`Employee created successfully: ${data.firstName} ${data.lastName}`, 'success');
         },
         (error) => {
-          console.error('Error creating employee:', error);
+          const details = error?.error?.message || error?.message || 'Unknown error occurred';
+          this.setMessage(`Error creating employee: ${details}`, 'error');
         },
       );
     } else {
-      alert('Please fill in all fields');
+      this.setMessage('Please fill in all fields', 'error');
     }
   }
 }
